@@ -13,8 +13,6 @@ test('MCGA website includes required semantic structure and content', () => {
     'MCGA TECHNOLOGIES LLC',
     'MCGA builds dependable software for modern digital life.',
     'Brands & products',
-    'StayLink',
-    'An MCGA product brand',
     'More to come',
     'Who we are',
     'Our mission',
@@ -37,12 +35,12 @@ test('MCGA website includes required semantic structure and content', () => {
   assert.match(html, /href="#capabilities"/i);
   assert.match(html, /href="#commitment"/i);
   assert.match(html, /class="brand-cards"/i);
-  assert.match(html, /class="brand-card"/i);
+  assert.match(html, /class="brand-card(?:\s|\")/i);
   assert.match(html, /class="brand-card brand-card--future"/i);
   assert.doesNotMatch(html, /Explore StayLink/i);
-  assert.match(html, /href="https:\/\/staylink\.org\//i);
-  assert.match(html, /href="mailto:support@staylink\.org"/i);
-  assert.match(html, /<footer\b[\s\S]*href="https:\/\/staylink\.org\//i);
+  assert.doesNotMatch(html, /StayLink/i);
+  assert.doesNotMatch(html, /staylink\.org/i);
+  assert.doesNotMatch(html, /support@staylink\.org/i);
 });
 
 test('MCGA website provides the network-console visual system', () => {
