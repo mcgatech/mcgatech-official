@@ -226,6 +226,7 @@ h1 {
 .stage-label--bottom { right: 9%; bottom: 8%; color: var(--signal); }
 
 .about-section,
+.company-section,
 .brands-section,
 .capability-grid,
 .commitment-panel {
@@ -236,6 +237,7 @@ h1 {
 }
 
 .about-section h2,
+.company-section h2,
 .brands-section h2,
 .capability-grid h2,
 .commitment-panel h2 {
@@ -264,6 +266,59 @@ h1 {
 .about-section p:last-child { margin-bottom: 0; }
 .about-section h2:nth-of-type(2) { grid-row: 3; }
 .about-section h2:nth-of-type(2) + p { grid-row: 3; }
+
+.company-details { grid-column: 5 / span 6; }
+
+.company-details p { margin: 0; }
+
+.company-details .company-statement {
+  color: var(--paper);
+  font: 400 clamp(1.75rem, 3.1vw, 2.55rem)/.99 var(--display);
+  letter-spacing: -.035em;
+}
+
+.company-details .company-statement + p {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.company-details dl {
+  margin: 3rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.company-details dl div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) 2fr;
+  gap: 1rem;
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.company-details dt {
+  color: var(--muted);
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.company-details dd { margin: 0; color: var(--paper); font-size: .82rem; }
+.company-details dd a { color: var(--signal); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .brands-section {
   align-items: start;
@@ -432,9 +487,12 @@ h1 {
   .hero-copy { max-width: 34rem; }
   h1 { font-size: clamp(3.7rem, 16vw, 5.5rem); }
   .network-stage { position: relative; right: auto; bottom: auto; width: 118%; margin: 3rem 0 -2rem -20%; }
-  .about-section, .brands-section, .capability-grid, .commitment-panel { display: block; padding-block: 5rem; }
-  .about-section h2, .brands-section h2, .capability-grid h2, .commitment-panel h2 { margin-bottom: 1.5rem; }
+  .about-section, .company-section, .brands-section, .capability-grid, .commitment-panel { display: block; padding-block: 5rem; }
+  .about-section h2, .company-section h2, .brands-section h2, .capability-grid h2, .commitment-panel h2 { margin-bottom: 1.5rem; }
   .about-section p, .capability-grid p, .commitment-panel p { margin-bottom: 3.5rem; font-size: clamp(1.75rem, 8vw, 2.55rem); }
+  .company-details { width: 100%; }
+  .company-details .company-statement { font-size: clamp(1.75rem, 8vw, 2.55rem); }
+  .company-details dl div { grid-template-columns: 1fr; gap: .25rem; }
   .brands-section .brand-cards { grid-template-columns: 1fr; gap: 1rem; }
   .brands-section .brand-card { min-height: 0; }
   .brands-section .brand-card h3 { margin-bottom: 2.75rem; }
