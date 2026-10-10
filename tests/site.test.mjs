@@ -54,7 +54,7 @@ test('MCGA website publishes verifiable company and contact information', () => 
   assert.match(html, /href="mailto:admin@mcgatech\.com"/i);
   assert.match(html, /href="privacy\.html"/i);
   assert.match(html, /href="terms\.html"/i);
-  assert.match(html, /https:\/\/secure\.utah\.gov\/bes\/index\.html/i);
+  assert.match(html, /href="https:\/\/secure\.utah\.gov\/bes\/index\.html"/i);
   assert.match(html, /href="#contact"/i);
 });
 
