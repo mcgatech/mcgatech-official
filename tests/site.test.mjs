@@ -43,6 +43,31 @@ test('MCGA website includes required semantic structure and content', () => {
   assert.doesNotMatch(html, /support@staylink\.org/i);
 });
 
+test('MCGA website publishes verifiable company and contact information', () => {
+  const html = readFileSync(resolve(projectRoot, 'index.html'), 'utf8');
+  for (const phrase of [
+    'MCGA TECHNOLOGIES LLC is a Utah, United States software company founded in 2026.',
+    'We build reliable software for secure, well-managed digital environments.',
+    'admin@mcgatech.com',
+    'Product development is underway.',
+  ]) assert.ok(html.includes(phrase), `missing: ${phrase}`);
+  assert.match(html, /href="mailto:admin@mcgatech\.com"/i);
+  assert.match(html, /href="privacy\.html"/i);
+  assert.match(html, /href="terms\.html"/i);
+  assert.match(html, /href="https:\/\/secure\.utah\.gov\/bes\/index\.html"/i);
+  assert.match(html, /href="#contact"/i);
+});
+
+test('MCGA website has accessible standalone legal pages', () => {
+  for (const fileName of ['privacy.html', 'terms.html']) {
+    const html = readFileSync(resolve(projectRoot, fileName), 'utf8');
+    assert.match(html, /<main\b/i);
+    assert.match(html, /MCGA TECHNOLOGIES LLC/i);
+    assert.match(html, /href="mailto:admin@mcgatech\.com"/i);
+    assert.match(html, /href="index\.html"/i);
+  }
+});
+
 test('MCGA website provides the network-console visual system', () => {
   const html = readFileSync(resolve(projectRoot, 'index.html'), 'utf8');
 
